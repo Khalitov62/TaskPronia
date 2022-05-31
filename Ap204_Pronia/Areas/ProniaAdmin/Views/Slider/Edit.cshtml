@@ -1,0 +1,29 @@
+﻿@using Ap204_Pronia.Models
+@model Slider
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<form method="post" class="form form-control mb-3">
+   <div>
+     <label class="mb-2" >Title:</label>
+    <input asp-for="Title" class="form form-control border border-info mb-2" type="text"/> 
+   </div>
+   <div>
+     <label class="mb-2" >SubTitle:</label>
+    <input asp-for="Subtitle" class="form form-control border border-info mb-2" type="text"/>
+   </div>
+   <div>
+     <label class="mb-2" >Discount:</label>
+    <input asp-for="Discount" class="form form-control border border-info mb-2" type="text"/>
+   </div>
+   <div>
+     <label class="mb-2" >Image:</label>
+    <input asp-for="Image" class="form form-control border border-info mb-2" type="text"/>
+   </div>
+
+   <div>
+       <button type="submit" class="btn btn-dark"> Edit Slider</button>
+   </div>
+</form>
+

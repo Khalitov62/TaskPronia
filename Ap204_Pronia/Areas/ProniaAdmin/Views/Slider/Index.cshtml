@@ -1,0 +1,71 @@
+﻿@model List<Slider>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="table-responsive pt-3">
+    <a asp-controller="Slider" asp-action="Create" style="color:white;font-size:20px" class="mb-3 btn btn-success">Create slider</a>
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th>
+                    Image
+                </th>
+                <th>
+                    Title
+                </th>
+                <th>
+                    Subtitle
+                </th>
+                <th>
+                    Discount
+                </th>
+                <th>
+                    Settings
+                </th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Slider slider in Model)
+            {
+                <tr>
+                    <td>
+                        <img style="width: 150px; height:90px" src="~/assets/images/website-images/@slider.Image" />
+                    </td>
+                    <td>
+                        @slider.Title
+                    </td>
+                    <td>
+                        @if (slider.Subtitle.Length >= 30)
+                        {
+                            @(slider.Subtitle.Substring(0, 30).ToString() + "...")
+                        }
+                        else
+                        {
+                            @slider.Subtitle
+                        }
+                    </td>
+                    <td>
+                        @slider.Discount
+                    </td>
+                    <td>
+                        <div class="d-flex">
+                            <div class="detail">
+                                <a asp-controller="Slider" asp-action="Detail" asp-route-id="@slider.Id" class="btn btn-primary"><i class="mdi mdi-details"></i></a>
+                            </div>
+                            <div class="edit">
+                                <a asp-controller="Slider" asp-action="Edit" asp-route-id="@slider.Id" class="btn btn-warning">
+                                    <i class="mdi mdi-tooltip-edit"></i>
+                                </a>
+                            </div>
+                            <div class="delete">
+                                <a asp-controller="Slider" asp-action="Delete" asp-route-id="@slider.Id" class="btn btn-danger"> <i class="mdi mdi-delete-forever"></i></a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

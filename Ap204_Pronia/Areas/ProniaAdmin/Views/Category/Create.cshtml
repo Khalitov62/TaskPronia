@@ -1,0 +1,17 @@
+﻿@using Ap204_Pronia.Models
+@model Category
+@{
+    ViewData["Title"] = "Create";
+}
+
+<form method="post" class="form form-control mb-3">
+   <div>
+     <label class="mb-2" >Category Name:</label>
+    <input asp-for="Name" class="form form-control border border-info mb-2" type="text"/>
+    <span class="text-danger" asp-validation-for="Name"></span>
+   </div>
+   <div>
+       <button type="submit" class="btn btn-dark"> Create Category</button>
+   </div>
+</form>
+

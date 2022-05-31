@@ -1,0 +1,39 @@
+﻿
+@model Slider;
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div>
+    <div>
+        <h4>
+            Title:
+        </h4>
+        <p>
+            @Model.Title
+        </p>
+    </div>
+    <div>
+        <h4>
+            SubTitle:
+        </h4>
+        <p>
+            @Model.Subtitle
+        </p>
+    </div>
+    <div>
+        <h4>
+            Discount:
+        </h4>
+        <p>
+            @Model.Discount
+        </p>
+    </div>
+</div>
+
+
+<form method="post" class="mt-4">
+    <button type="submit" class="btn btn-danger">Delete</button>
+</form>
+

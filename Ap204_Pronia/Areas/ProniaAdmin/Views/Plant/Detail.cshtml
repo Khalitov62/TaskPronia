@@ -1,0 +1,74 @@
+﻿@model Plant
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div asp-validation-summary="ModelOnly" class=" alert alert-danger"></div>
+<form method="post" enctype="multipart/form-data">
+    <div>
+        <label class="mb-3">Plant  Name:</label><br />
+        <input asp-for="Name" class="form-control border border-info" /><br />
+        <span class="text-danger" asp-validation-for="Name"></span>
+    </div>
+    <div>
+        <label class="mb-3">Plant Price:</label><br />
+        <input asp-for="Price" class="form-control border border-info" /><br />
+        <span class="text-danger" asp-validation-for="Price"></span>
+    </div>
+    <div>
+        <label class="mb-3">Plant Description:</label><br />
+        <input asp-for="Description" class="form-control border border-info" /><br />
+        <span class="text-danger" asp-validation-for="Description"></span>
+    </div>
+    <div>
+        <label class="mb-3">Plant SkuCode:</label><br />
+        <input asp-for="SKUCode" class="form-control border border-info" /><br />
+        <span class="text-danger" asp-validation-for="SKUCode"></span>
+    </div>
+    <div>
+        <label class="mb-3">Plant Colors:</label><br />
+        <select class="form-select" asp-items="@(new SelectList(ViewBag.Colors,"Id","Name"))" asp-for="ColorId">
+        </select>
+        <span class="text-danger" asp-validation-for="SKUCode"></span>
+    </div>
+    <div>
+        <label class="mb-3">Plant Sizes:</label><br />
+        <select class="form-select" asp-items="@(new SelectList(ViewBag.Sizes,"Id","Name"))" asp-for="SizeId">
+        </select>
+        <span class="text-danger" asp-validation-for="SKUCode"></span>
+    </div>
+     
+    <div>
+        <label class="mb-3">Plant Shipping:</label><br />
+        <input asp-for="Shipping" class="form-control border border-info" /><br />
+        <span class="text-danger" asp-validation-for="Shipping"></span>
+    </div>
+    <div>
+        <label class="mb-3">Plant Guarantee :</label><br />
+        <input asp-for="Guarantee" class="form-control border border-info" accept="image/*" /><br />
+        <span class="text-danger" asp-validation-for="Guarantee"></span>
+    </div>
+     
+     <div>
+        <label class="mb-3">Plant Main Image :</label><br />
+        <img style=" width:150px; height:90px;" src="~/assets/images/website-images/@Model.PlantImages.FirstOrDefault(i=>i.IsMain==true).ImagePath"/>
+        <span class="text-danger" asp-validation-for="AnotherImage"></span>
+    </div>
+
+    <p>Another Image</p>
+    <div class="d-fex">
+        @foreach (var img in Model.PlantImages.Where(i=>i.IsMain==false))
+       {
+             <div class="col-lg-2">
+        <img style=" width:150px; height:90px;" src="~/assets/images/website-images/@img.ImagePath"/>
+
+             </div>
+       }
+    </div>
+
+</form>
+
+
+
+
+

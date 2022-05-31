@@ -1,0 +1,24 @@
+﻿@using Ap204_Pronia.Models
+@model Slider
+@{
+    ViewData["Title"] = "Detail";
+}
+<div>
+    <div>
+        <h2 style="color:red">Title:  @Model.Title</h2>
+      
+    </div>
+    <div>
+         <h2 style="color:blue">SubTitle:   @Model.Subtitle </h2>
+       
+    </div>
+    <div>
+         <h2 style="color:green">Discount:   @Model.Discount </h2>
+       
+    </div>
+    <div>
+     <label class="mb-2" >Image:</label>
+     <img style="width:200px; height:130px" src="~/assets/images/website-images/@Model.Image"/>
+   </div>
+</div>
+

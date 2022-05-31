@@ -1,0 +1,55 @@
+﻿@using Ap204_Pronia.Models
+@model List<Size>
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="table-responsive pt-3">
+    <a asp-controller="Size" asp-action="create" style="color:white;font-size:20px" class="mb-3 btn btn-success">Create size</a>
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th>
+                    Id
+                </th>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Settings
+                </th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Size size in Model)
+            {
+                <tr>
+                    <td>
+                        @size.Id
+                    </td>
+                    <td>
+                        @size.Name
+                    </td>
+                    <td>
+                        <div class="d-flex">
+                            <div class="detail">
+                                <a asp-controller="Size" asp-action="Detail" asp-route-id="@size.Id" class="btn btn-primary"><i class="mdi mdi-details"></i></a>
+                            </div>
+                            <div class="edit">
+                                <a asp-controller="Size" asp-action="Edit" asp-route-id="@size.Id" class="btn btn-warning">
+                                    <i class="mdi mdi-tooltip-edit"></i>
+                                </a>
+                            </div>
+                            <div class="delete">
+                                <a asp-controller="Size" asp-action="Delete" asp-route-id="@size.Id" class="btn btn-danger"> <i class="mdi mdi-delete-forever"></i></a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

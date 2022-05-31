@@ -1,0 +1,54 @@
+﻿@using Ap204_Pronia.Models
+@model List<Category>
+@{
+    ViewData["Title"] = "CategoryIndex";
+}
+
+<div class="table-responsive pt-3">
+    <a style="color:white;font-size:20px" asp-controller="Category" asp-action="create" class="mb-3 btn btn-success">Create Category</a>
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th>
+                    Id
+                </th>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Settings
+                </th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Category category in Model)
+            {
+                <tr>
+                    <td>
+                        @category.Id
+                    </td>
+                    <td>
+                        @category.Name
+                    </td>
+                    <td>
+                        <div class="d-flex">
+                            <div class="detail">
+                                <a asp-controller="Category" asp-action="Detail" asp-route-id="@category.Id" class="btn btn-primary"><i class="mdi mdi-details"></i></a>
+                            </div>
+                            <div class="edit">
+                                <a asp-controller="Category" asp-action="Edit" asp-route-id="@category.Id" class="btn btn-warning">
+                                    <i class="mdi mdi-tooltip-edit"></i>
+                                </a>
+                            </div>
+                            <div class="delete">
+                                <a asp-controller="Category" asp-action="Delete" asp-route-id="@category.Id" class="btn btn-danger"> <i class="mdi mdi-delete-forever"></i></a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
